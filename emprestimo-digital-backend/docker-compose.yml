@@ -1,0 +1,9 @@
+version: "3.6"
+services:
+  emprestimo-digital:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: emprestimo-digital
+    ports:
+      - 8080:8080

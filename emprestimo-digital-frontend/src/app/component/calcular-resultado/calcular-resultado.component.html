@@ -1,0 +1,21 @@
+<div *ngIf="emprestimoCalcular">
+  <div class="card card-primary">
+    <div class="card-header bg-success text-white">
+      <h3 class="card-title">Valores do Empréstimo:</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">Pagamento Mensal:</div>
+        <div class="col text-right">R$ {{ (+emprestimoCalcular.pagamentoMensal) | number:'1.0-2'}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Total de {{ (+emprestimoCalcular.pagamentos)}} pagamento:</div>
+        <div class="col text-right">R$ {{ (+emprestimoCalcular.totalPagamento) | number:'1.0-2'}}</div>
+      </div>
+      <div class="row">
+        <div class="col">Total Juros:</div>
+        <div class="col text-right">R$ {{ (+emprestimoCalcular.totalJuros) | number:'1.0-2'}}</div>
+      </div>
+    </div>
+  </div>
+</div>

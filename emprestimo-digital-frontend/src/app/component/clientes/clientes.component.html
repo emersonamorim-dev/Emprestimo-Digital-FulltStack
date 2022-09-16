@@ -1,0 +1,30 @@
+<div style="margin-top: 70px;">
+  <app-error-message *ngIf="errorMessage" [errorMessage]="errorMessage"></app-error-message>
+
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Total Empréstimo</th>
+        <th>Juros</th>
+        <th>Anos</th>
+        <th>Parcela Mensal</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let cliente of clientes let index = index">
+        <td>{{ index + 1 }}</td>
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>R$ {{ cliente.totalEmprestimo }}</td>
+        <td>{{ cliente.juros }} %</td>
+        <td>{{ cliente.anos }}</td>
+        <td>R$ {{ cliente.fixoPagamentoMensal | number:'1.0-2'}} </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

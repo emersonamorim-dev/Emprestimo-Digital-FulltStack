@@ -1,0 +1,61 @@
+<div style="margin-top: 70px;">
+  <app-error-message *ngIf="errorMessage" [errorMessage]="errorMessage"></app-error-message>
+
+  <div class="row" [ngClass]="{'col-md-6 mx-auto' : !submitted}">
+
+    <div class="col">
+      <form (ngSubmit)="onSubmit()" #emprestimoForm="ngForm">
+
+        <div class="card card-primary">
+          <div class="card-header bg-success text-white">
+            <h3 class="card-title">Calculadora de Empréstimo</h3>
+          </div>
+          <div class="card-body">
+
+            <div class="form-group ">
+              <label for="totalEmprestimo" class="form-label">Valor do Empréstimo</label>
+              <input type="number" class="form-control" id="totalEmprestimo" required
+                [(ngModel)]="emprestimo.totalEmprestimo" name="totalEmprestimo" #totalEmprestimo="ngModel"
+                [ngClass]="{ 'is-invalid': totalEmprestimo.touched && totalEmprestimo.errors?.['required']}"
+                placeholder="R$  ">
+              <span *ngIf="totalEmprestimo.invalid && totalEmprestimo.touched" class="invalid-feedback">
+                Insira o valor do empréstimo
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="juros" class="form-label">Taxa de juro</label>
+              <input type="number" class="form-control" id="juros" required [(ngModel)]="emprestimo.juros" name="juros"
+                #juros="ngModel" [ngClass]="{ 'is-invalid': juros.touched && juros.errors?.['required']}"
+                placeholder="%  ">
+              <span *ngIf="juros.invalid && juros.touched" class="invalid-feedback">
+                Insira a taxa de juros
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="anos" class="form-label">Prazo do Empréstimo</label>
+              <input type="number" class="form-control" id="anos" required [(ngModel)]="emprestimo.anos" name="anos"
+                #anos="ngModel" [ngClass]="{ 'is-invalid': anos.touched && anos.errors?.['required']}"
+                placeholder="anos  ">
+              <span *ngIf="anos.invalid && anos.touched" class="invalid-feedback">
+                Insira o prazo do empréstimo
+              </span>
+            </div>
+
+            <div class="card-footer">
+              <button type="submit" class="btn submit" [disabled]="!emprestimoForm.form.valid">Calcular</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <app-calcular-resultado class="col" *ngIf="submitted" [emprestimoCalcular]="emprestimoCalcular">
+    </app-calcular-resultado>
+
+
+  </div>
+
+</div>
