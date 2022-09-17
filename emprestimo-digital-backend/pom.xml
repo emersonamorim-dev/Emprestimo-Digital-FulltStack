@@ -8,7 +8,7 @@
 		<version>2.7.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>om.simulador</groupId>
+	<groupId>com.simulador</groupId>
 	<artifactId>emprestimo-digital</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>emprestimo-digital</name>
